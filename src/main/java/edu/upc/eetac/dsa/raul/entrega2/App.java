@@ -16,6 +16,7 @@ public class App {
 				ejercicio = Integer.parseInt(t);
 			} catch (Exception e) {
 				System.out.println("No has introducido un numero del 8 al 11");
+				continue;
 			}
 
 			switch (ejercicio) {
@@ -111,8 +112,9 @@ public class App {
 				break;
 
 			case 0:
+				System.out.println("Fin del test.");
 				return;
-				
+
 			default:
 				break;
 			}

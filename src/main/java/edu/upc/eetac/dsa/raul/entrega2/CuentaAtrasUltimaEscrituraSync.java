@@ -15,9 +15,9 @@ public class CuentaAtrasUltimaEscrituraSync extends Thread {
 	}
 
 	public void run() {
-		while(segundos >= 0) {
-			synchronized(ultimaEscritura) {
-				System.out.println(id+" - "+segundos--+" - Ultima escritura "+ultimaEscritura);
+		while (segundos >= 0) {
+			synchronized (ultimaEscritura) {
+				System.out.println(id + " - " + segundos-- + " - Ultima escritura " + ultimaEscritura);
 				ultimaEscritura = id;
 			}
 			try {
@@ -27,7 +27,9 @@ public class CuentaAtrasUltimaEscrituraSync extends Thread {
 			}
 		}
 		threadsActivos--;
-		System.out.println("Ultima escritura "+ultimaEscritura+" - "+threadsActivos+" Threads activos.");
-		return;		
+		synchronized (ultimaEscritura) {
+			System.out.println("Ultima escritura " + ultimaEscritura + " - " + threadsActivos + " Threads activos.");
+		}
+		return;
 	}
 }
